@@ -138,7 +138,7 @@ li {
  
 <title> Foreign Worlds</title>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine|Alegreya|Adamina|Comfortaa|Cinzel|cardo|Cormorant+Garamond:light">
-<link rel="stylesheet" type="text/css" href="gallery/styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="gallery/styles.css"> -->
 </head>
 <div class="jumbotron">
   <div class="container">
@@ -158,9 +158,9 @@ li {
   <div class="image">
 
     <ul class="carousel">
-      <li><img class="thumb" src="http://gdurl.com/HwAJ"></li>
-      <li><img class="thumb" src="http://gdurl.com/YJlG"></li>
-      <li><img class="thumb" src="http://gdurl.com/AfVC"></li>
+      <li><img onclick="imgfunction('squish')" id = 'squish' class="thumb" src="http://gdurl.com/HwAJ"></li>
+      <li><img onclick="imgfunction('ant')" id = 'ant' class="thumb" src="http://gdurl.com/YJlG"></li>
+      <li><img onclick="imgfunction('bug')" id = 'bug' class="thumb" src="http://gdurl.com/AfVC"></li>
     </ul>
 
   </div>
@@ -172,27 +172,48 @@ li {
 <div class="image">
 
   <ul class="carousel">
-    <li><img id='scrab' class="thumb" src="https://c1.staticflickr.com/1/413/32412080230_b25f424c14_b.jpg"></li>
-    <li><img class="thumb" src="https://c1.staticflickr.com/3/2345/32639000482_8846a61b94_b.jpg"></li>
-    <li><img class="thumb" src="https://c1.staticflickr.com/4/3830/32669057301_8012a9a3a9_b.jpg">
+    <li><img onclick="imgfunction('scrab')" id='scrab' class="thumb" src="https://c1.staticflickr.com/1/413/32412080230_b25f424c14_b.jpg"></li>
+    <li><img onclick="imgfunction('flier')" id = 'flier' class="thumb" src="https://c1.staticflickr.com/3/2345/32639000482_8846a61b94_b.jpg"></li>
+    <li><img onclick="imgfunction('head')" id = 'head' class="thumb" src="https://c1.staticflickr.com/4/3830/32669057301_8012a9a3a9_b.jpg">
       <li>
   </ul>
+
+<!-- The Modal -->
 <div id="myModal" class="modal">
 
-      <!-- The Close Button -->
-      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display = 'none'">&times;</span>
 
-      <!-- Modal Content (The Image) -->
-      <img class="modal-content" id="img01">
-    </div>  
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
 
 <script>
+//Assign the Image Variable
+
+var img = '';
+
+function imgfunction(ID) {
+    window.img =  document.getElementById(ID);
+    console.log('ID is: '+ID);
+    console.log('IMG is: ' + img);  
+          
+
+
+
+
+console.log('IMG global is: ' + img);
   // Get the modal
-var modal = document.getElementById('scrab');
+var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('scrab');
+//var img = document.getElementById('scrab');
+
 var modalImg = document.getElementById("img01");
+
 img.onclick = function(){
     modal.style.display = "block";
     modalImg.src = this.src;
@@ -204,6 +225,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
+}
 }
   </script>
 </div>
