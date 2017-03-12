@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+html,main {
+  height: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.main {
+  text-align: center;
+  height: 325px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 3px solid black;
+  transition: height .3s;
+  background-color:   #efefef;
+
+}
+
+.sticky  {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100px;
+  position: fixed;
+  z-index: 999;
+  font-size: 55px;
+  background-color:   #efefef;
+  border-bottom: 3px solid black;
+  animation-name: shrink;
+  animation-duration: .3s;
+}
+
+@keyframes shrink {
+  from{font-size: 80px;}
+  to{font-size: 55px;}
+  from{height: 150px;}
+  to {height: 100px;}
+}
+
+.stickysub {
+  display: none;
+
+}
+
+h1,h4 {
+  font-family: 'Goudy Bookletter 1911';
+  font-size: 80px;
+  font-weight: 100;
+  color: black;
+  text-align: center;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+
+}
+
+
+sh {
+  font-family: 'Goudy Bookletter 1911';
+  color: black;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+ul {
+  margin-top: 0;
+  padding-top: 0;
+  list-style-type: none;
+}
+
+.link { 
+  /*position: fixed;*/
+ }
+
+.menu {
+  display: block;
+  float: left;
+/*  max-width: 150px;
+*/  margin: auto;
+    padding-bottom: 500px;
+/*  position: fixed;
+*/}
+
+links {
+  font-family: 'Goudy Bookletter 1911';
+  font-size: 35px;
+  padding-right: 25px;
+  width: 200px;
+}
+
+.link:hover {
+  color: #239589;
+  border-bottom-width: 3px;
+  border-bottom-color: #000111;
+}
+
+.section1 {
+  background-color: #efefef;
+  padding: 0%;
+  margin: 0;
+  display: flex;
+  position: relative; 
+}
+
+.image {
+    padding-top: 15px;  
+    background-color:   #efefef;
+    position: relative;
+    flex: 1;
+
+}
+
+.thumb:hover {
+  border-color: #7692c1;
+  border-style: inset;
+}
+
+.thumb {
+  border: 1px;
+  border-style: solid;
+  border-color: #5e5e5e;
+  padding: 1px;
+  height: 200px;
+  filter: opacity(1);
+  overflow-x: hidden;
+  float: left;
+  flex: 1;
+  margin: 1px;
+  animation: appear .3s;
+}
+
+@keyframes appear {
+  from {height: 0px}
+  to {height: 200px}
+  from{filter: opacity(0)}
+  to{filter: opacity(1)}
+/*  from{display: flex}
+  to{display: none}*/
+}
+
+.thumb.hidden { 
+  height: 0;
+  filter: opacity(0);
+  animation: disappear .3s;
+/*  display: none;
+*/}
+
+@keyframes disappear {
+  from {height: 200px}
+  to {height: 0px}
+  from{filter: opacity(1)}
+  to{filter: opacity(0)}
+/*  from{display: flex}
+  to{display: none}*/
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 5%;
+  padding-bottom: 55%;  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: false;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.2s;
+    animation-name: zoom;
+    animation-duration: 0.2s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+  </style>
+ 
+<title> Foreign Worlds</title>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine|Alegreya|Adamina|Comfortaa|Cinzel|cardo|Cormorant+Garamond:light|Indie+FLower|Goudy+Bookletter+1911">
+<!-- <link rel="stylesheet" type="text/css" href="gallery/styles.css"> -->
+</head>
+
+<div class="main" id='header'>
+  <h1 id='title'>Foreign Worlds</h1>
+  <h4 id='title2'>Atelier</h4>
+  </br>
+  <sh id='subtitle'>Peter Morrison's eidetic field guide to worlds near and far</sh>
+  </br>
+  </br>
+</div>
+
+<div class='section1' id = 'bgimage'>
+<div class = 'menu'>
+<links>
+    <ul> 
+    <li class="link" id='home'>Home</li>
+    <li class="link" id = '2D'>2D</li>
+    <li class="link" id='3D'>3D</li>
+    <li class="link" id='traditional'>Traditional</li>
+    <li class="link" id='contact'>Contact</li>
+    </ul>
+</links>
+</div>
+
+   <div class="image">
+   <ul class="carousel" id = 'carousel1'>
+      <li><img onmouseover = "imgfunction('squish')" id = 'squish' class="thumb twoD" src="http://gdurl.com/HwAJ"></li>
+      <li><img onmouseover= "imgfunction('treeman')" id = 'treeman' class="thumb twoD" src="https://c2.staticflickr.com/4/3879/32418919133_35c2637177_o.jpg"></li>
+      <li><img onmouseover= "imgfunction('bug')" id = 'bug' class="thumb twoD" src="http://gdurl.com/AfVC"></li>
+
+      <li><img onmouseover= "imgfunction('scrab')" id='scrab' class="thumb threeD" src="https://c1.staticflickr.com/1/413/32412080230_b25f424c14_b.jpg"></li>
+      <li><img onmouseover= "imgfunction('flier')" id = 'flier' class="thumb threeD" src="https://c1.staticflickr.com/3/2345/32639000482_8846a61b94_b.jpg"></li>
+      <li><img onmouseover= "imgfunction('head')" id = 'head' class="thumb threeD" src="https://c1.staticflickr.com/4/3830/32669057301_8012a9a3a9_b.jpg">
+      <li>
+  
+      <li><img onmouseover= "imgfunction('raptortopo')" id='raptortopo' class="thumb threeD" src="https://c1.staticflickr.com/1/500/32412081090_ff6e24112c_o.png"></li>
+      <li><img onmouseover= "imgfunction('ant')" id = 'ant' class="thumb twoD" src="http://gdurl.com/YJlG"></li>
+      <li><img onmouseover= "imgfunction('alienlandscapebeach')" id = 'alienlandscapebeach' class="thumb twoD" src="https://c1.staticflickr.com/3/2011/33080316335_ac45cfc3ba_o.png"></li>
+
+      <li><img onmouseover= "imgfunction('apothecary')" id='apothecary' class="thumb twoD" src="https://c1.staticflickr.com/3/2900/32083761143_65d3b7d96c_o.png"></li>
+      <li><img onmouseover= "imgfunction('raptorhead')" id = 'raptorhead' class="thumb threeD" src="https://c1.staticflickr.com/3/2912/32412077170_aa1d32e684_o.png"></li>
+      <li><img onmouseover= "imgfunction('squidheadalien')" id = 'squidheadalien' class="thumb threeD" src="https://c1.staticflickr.com/1/427/32412080160_54a60d92cf_o.png"></li>
+
+      <li><img onmouseover= "imgfunction('fleaheadalien')" id='fleaheadalien' class="thumb threeD" src="https://c2.staticflickr.com/4/3749/32669058671_413b4d1f92_b.jpg"></li>
+      <li><img onmouseover= "imgfunction('raptorprofile')" id = 'raptorprofile' class="thumb threeD" src="https://c1.staticflickr.com/3/2918/32751877116_7527508cde_o.png"></li>
+      <li><img onmouseover= "imgfunction('prowlerprofile')" id = 'prowlerprofile' class="thumb threeD" src="https://c1.staticflickr.com/3/2929/32412077640_347055bb29_o.png"></li>
+
+      <li><img onmouseover= "imgfunction('jellycolor')" id='jellycolor' class="thumb threeD" src="https://c1.staticflickr.com/3/2570/32412078040_2423632620_b.jpg"></li>
+      <li><img onmouseover= "imgfunction('jellyclear')" id = 'jellyclear' class="thumb threeD" src="https://c1.staticflickr.com/3/2769/32412078350_33cc5e5c26_o.png"></li>
+      <li><img onmouseover= "imgfunction('desertfliertop')" id = 'desertfliertop' class="thumb threeD" src="https://c1.staticflickr.com/3/2703/31978083503_6901ff8fe0_o.png"></li>
+    </ul>
+<!-- URLS 
+
+raptortopo: https://c1.staticflickr.com/1/500/32412081090_ff6e24112c_o.png
+desertfliernocolor: https://c1.staticflickr.com/3/2345/32639000482_9bbe3d6f8f_o.png
+alienlandscapebeach: https://c1.staticflickr.com/3/2011/33080316335_ac45cfc3ba_o.png
+apothecary: https://c1.staticflickr.com/3/2900/32083761143_65d3b7d96c_o.png
+raptorhead: https://c1.staticflickr.com/3/2912/32412077170_aa1d32e684_o.png
+squidheadalien: https://c1.staticflickr.com/1/427/32412080160_54a60d92cf_o.png
+fleaheadalien: https://c2.staticflickr.com/4/3749/32669058671_413b4d1f92_b.jpg
+raptorprofile: https://c1.staticflickr.com/3/2918/32751877116_7527508cde_o.png
+prowlerprofile: https://c1.staticflickr.com/3/2929/32412077640_347055bb29_o.png
+jellycolor: https://c1.staticflickr.com/3/2570/32412078040_2423632620_b.jpg
+jellyclear: https://c1.staticflickr.com/3/2769/32412078350_33cc5e5c26_o.png
+desertfliertop: https://c1.staticflickr.com/3/2703/31978083503_6901ff8fe0_o.png
+cloudcatcher: https://c1.staticflickr.com/1/557/32412079680_e5c85d2385_o.png
+treeman: https://c2.staticflickr.com/4/3879/32418919133_35c2637177_o.jpg
+banner: https://c1.staticflickr.com/1/665/32470625444_79e02cfe78_b.jpg
+
+
+
+-->
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+</div>
+
+
+<script>
+//Assign the Image Variable
+
+var img = '';
+
+const linkHome = document.getElementById('home');
+const link2D = document.getElementById('2D');
+const link3D = document.getElementById('3D');
+const linkTraditional = document.getElementById('traditional');
+
+
+const twoDImage = document.querySelectorAll('.twoD');
+const threeDImage = document.querySelectorAll('.threeD');
+const thumbs = document.querySelectorAll('.thumb');
+
+
+function imgfunction(ID) {
+    window.img =  document.getElementById(ID);
+
+  // Get the modal
+    var modal = document.getElementById('myModal');
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  //var img = document.getElementById('scrab');
+
+  var modalImg = document.getElementById("img01");
+
+  img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+  }
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  modal.onclick = function() { 
+    modal.style.display = "none";
+  }
+}
+//Function
+runOnScroll = function(e) {
+  if (pageYOffset >= 5) {
+    document.getElementById("header").classList.add("sticky");
+    document.getElementById("title").classList.add("sticky");
+    document.getElementById("title2").classList.add("stickysub");
+    document.getElementById("subtitle").classList.add("stickysub");
+  }
+  if (pageYOffset <= 5) {
+    document.getElementById("header").classList.remove("sticky");
+    document.getElementById("title").classList.remove("sticky");
+    document.getElementById("title2").classList.remove("stickysub");
+    document.getElementById("subtitle").classList.remove("stickysub");
+
+  }
+}
+
+twoDClick = function(e) {
+  threeDImage.forEach(type => {
+
+    type.classList.add('hidden');
+
+  });
+
+    twoDImage.forEach(image =>{
+    image.classList.remove('hidden');
+
+  })
+}
+
+threeDClick = function(e) {
+  twoDImage.forEach(type => {
+
+    type.classList.add('hidden');
+
+  });
+
+  threeDImage.forEach(image =>{
+    image.classList.remove('hidden');
+
+  });
+
+}
+
+homeClick = function(e) {
+    thumbs.forEach(thumb =>{
+        thumb.classList.remove('hidden');
+    });
+
+}
+
+traditionalClick = function (e) {
+
+
+}
+
+//Listeners
+window.addEventListener('scroll', runOnScroll);
+home.addEventListener('click', homeClick);
+link2D.addEventListener('click', twoDClick);
+link3D.addEventListener('click', threeDClick);
+linkTraditional.addEventListener('click', traditionalClick);
+
+
+
+  </script>
+
+</html>
